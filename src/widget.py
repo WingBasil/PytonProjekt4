@@ -1,16 +1,22 @@
-def get_mask_card_number(card_number: int) -> str:
-    """Принимает на вход номер карты и возвращает ее маску."""
-    str_card_number = str(card_number)
-    mask_card_number = str_card_number[:4] + " " + str_card_number[4:6] + "** **** " + str_card_number[-4:]
-    return mask_card_number
+from typing import Union
+import masks
+def mask_account_card(input_number: str) -> str:
+    """Анализирует принятую строку на наличие информации о счете или карте
+    Формирует строку с Типом карты/Счетом + маска."""
+    if "Счет" in input_number:
+        account_number = int(input_number[-20:])
+        new_text = "Счет " + masks.get_mask_account(account_number)
+    else:
+        card_number = int(input_number[-16:])
+        new_text =  input_number[:15] + masks.get_mask_card_number(card_number)
+    return new_text
 
+def get_data(date: str) -> str:
+    """Функция преобразования даты"""
+    return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
 
-def get_mask_account(account_number: int) -> str:
-    """Принимает на вход номер счета и возвращает его маску."""
-    str_account_number = str(account_number)
-    mask_account_number = "**" + str_account_number[-4:]
-    return mask_account_number
+print(get_data('2018-07-11T02:26:18.671407'))
 
-
-print(get_mask_card_number(7374875689079087))
-print(get_mask_account(12345678901234567890))
+#input_number = "MasterCard 7158300734726758"
+#input_number = "Счет 12345678901234567890"
+#print(mask_account_card(input_number))
