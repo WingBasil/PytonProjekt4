@@ -4,7 +4,7 @@
 
 Установка:
 Клонируйте репозиторий:
-git clone https://github.com/WingBasil/DZ_10_1.git
+git clone https://github.com/WingBasil/PytonProjekt4
 Установите зависимости:
 pip install -r requirements.txt
 Документация:
