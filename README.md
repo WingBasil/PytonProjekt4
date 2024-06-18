@@ -3,9 +3,8 @@
 Содержит: Функцию маскирования номера карты и счета, фунцию преобразования даты.
 Тесты: Содержит тесты функционала
 Установка:
-Клонируйте репозиторий:
-git clone https://github.com/WingBasil/PytonProjekt4
+Клонируйте репозиторий: git clone https://github.com/WingBasil/PytonProjekt4
 Установите зависимости:
 pip install -r requirements.txt
-Документация:
-Лицензия:
+Документация: - 
+Лицензия: - 
