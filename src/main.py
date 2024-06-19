@@ -20,6 +20,6 @@ def get_data(date: str) -> Any:
 
 
 # print(get_data('2018-07-11T02:26:18.671407'))
-# input_number = "MasterCard 7158300734726758"
+input_number = "MasterCard 7158300734726758"
 # input_number = "Счет 12345678901234567890"
-# print(mask_account_card(input_number))
+print(mask_account_card(input_number))
