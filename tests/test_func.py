@@ -1,5 +1,5 @@
 import pytest
-from src.widget import mask_account_card, get_data
+from src.main import mask_account_card, get_data
 
 
 @pytest.mark.parametrize("string, expected_result", [
