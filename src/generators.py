@@ -1,3 +1,4 @@
+from typing import List, Dict
 
 transactions = (
     [
@@ -86,6 +87,7 @@ def filter_by_currency(transactions, cod_curr):
         if key["operationAmount"]["currency"]["code"] == cod_curr:
             yield key["id"]
 
+
 usd_transaction = filter_by_currency(transactions, "USD")
 for transac in range(3):
     print(next(usd_transaction))
@@ -96,8 +98,17 @@ def transaction_descriptions(transactions):
     for i in transactions:
         yield i["description"]
 
+
 descriptions = transaction_descriptions(transactions)
 for transac in range(5):
     print(next(descriptions))
 
 
+def card_number_generator(start: int, end: int):
+    """Генерирует номера карт в формате XXXX XXXX XXXX XXXX."""
+    for number in range(start, end + 1):
+        yield ' '.join("{:016}".format(number)[i:i + 4] for i in range(0, 16, 4))
+
+
+for card_number in card_number_generator(1, 9):
+    print(card_number)
