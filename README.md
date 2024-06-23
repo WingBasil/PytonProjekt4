@@ -19,6 +19,15 @@ tests\test_processing.py       8      0   100%
 ----------------------------------------------
 TOTAL                         65      0   100%
 
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+src\__init__.py                0      0   100%
+src\generators.py             20      0   100%
+tests\__init__.py              0      0   100%
+tests\conftest.py              5      0   100%
+tests\test_generators.py      21      0   100%
+----------------------------------------------
+TOTAL                         46      0   100%
 
 Установка:
 Клонируйте репозиторий: git clone https://github.com/WingBasil/PytonProjekt4

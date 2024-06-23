@@ -33,7 +33,7 @@ def test_filter_by_currency(test_transactions, cod_curr = "USD"):
     }
 
 
-def transaction_descriptions(test_transactions):
+def test_transaction_descriptions(test_transactions):
     generator = transaction_descriptions(transactions)
     assert next(generator) == "Перевод организации"
     assert next(generator) == "Перевод со счета на счет"
