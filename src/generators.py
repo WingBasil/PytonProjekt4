@@ -81,6 +81,7 @@ transactions = (
 
 
 def filter_by_currency(transactions, cod_curr):
+    """Генератор - принимает список словарей и возвращает операции, в которых указана заданная валюта."""
     for key in transactions:
         if key["operationAmount"]["currency"]["code"] == cod_curr:
             yield key["id"]
@@ -89,6 +90,14 @@ usd_transaction = filter_by_currency(transactions, "USD")
 for transac in range(3):
     print(next(usd_transaction))
 
-#descriptions = transactions(transactions):
-for i in transactions:
-    print(i["description"])
+
+def transaction_descriptions(transactions):
+    """Генератор принимает список словарей и возвращает описание каждой операции"""
+    for i in transactions:
+        yield i["description"]
+
+descriptions = transaction_descriptions(transactions)
+for transac in range(5):
+    print(next(descriptions))
+
+
