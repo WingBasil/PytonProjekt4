@@ -80,13 +80,14 @@ transactions = (
 )
 
 
-usd_transactions=list(filter(lambda item: item["operationAmount"]["currency"]["code"] == "USD", transactions))
-print(usd_transactions)
-for i in usd_transactions:
-##   result = (usd_transactions)[transaction]["id"]
-# result = i["id"]
-    print(i["id"])
+def filter_by_currency(transactions, cod_curr):
+    for key in transactions:
+        if key["operationAmount"]["currency"]["code"] == cod_curr:
+            yield key["id"]
 
+usd_transaction = filter_by_currency(transactions, "USD")
+for transac in range(3):
+    print(next(usd_transaction))
 
 #descriptions = transactions(transactions):
 for i in transactions:
