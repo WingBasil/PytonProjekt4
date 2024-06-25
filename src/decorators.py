@@ -32,4 +32,4 @@ def my_function(x: int, y: int) -> int:
     return x + y
 
 
-my_function(' ', 'b')
+my_function()
