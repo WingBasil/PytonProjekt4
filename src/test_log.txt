@@ -8,3 +8,4 @@ my_function called with args: ('', 'e'), kwargs:{}. Result: e
 my_function error: unsupported operand type(s) for +: 'int' and 'str'. Inputs:(1, ''), {}
 my_function error: my_function() missing 1 required positional argument: 'y'. Inputs:(1,), {}
 my_function error: my_function() missing 2 required positional arguments: 'x' and 'y'. Inputs:(), {}
+my_function called with args: (1, 2), kwargs:{}. Result: 3
