@@ -11,7 +11,7 @@ def test_log(capsys):
     my_function(1, 2)
     captured = capsys.readouterr()
     assert "my_function called with args: (1, 2), kwargs:{}. Result: 3\n" in captured.out
-    # Проверка ошибки
+    # Проверка ошибки.
     try:
         my_function(0, 2)
     except TypeError as e:
