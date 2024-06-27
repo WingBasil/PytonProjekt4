@@ -15,19 +15,21 @@ def log(filename: Any) -> Callable:
             except Exception as e:
                 log_message = f"{func.__name__} error: {e}. Inputs:{args}, {kwargs}"
             if filename:
-                with open(filename, "a") as f:
-                    f.write(log_message + "\n")
+                with open(filename, "a", encoding="utf-8") as file:
+                    file.write(log_message + "\n")
+                    print(log_message)
             else:
                 print(log_message)
+#            return result
         return wrapper
 
     return decorator
 
 
-#@log(filename="test_log.txt")
-@log(filename="")
+@log(filename="test_log.txt")
+#@log(filename="")
 def my_function(x: int, y: int) -> int:
     return x + y
 
 
-my_function(1,2)
+#my_function(1,2)
