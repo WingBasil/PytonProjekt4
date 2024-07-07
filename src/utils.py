@@ -20,7 +20,8 @@ def get_transactions_dictionary(path: str) -> Any:
 
 
 def return_transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
-    """Функция принимает транзакцию и возвращает сумму транзакции в рублях, если не в рублях, конвертирует в рубли"""
+    """Функция принимает ID транзакции и возвращает сумму транзакции в рублях,
+    если сумма не в рублях, конвертирует в рубли"""
     for transaction in transactions:
         if transaction["id"] == transaction_id:
             if transaction["operationAmount"]["currency"]["code"] == "RUB":
@@ -37,4 +38,4 @@ def return_transaction_amount_in_rub(transactions: list, transaction_id: int) ->
 
 if __name__ == "__main__":
     transactions = get_transactions_dictionary("../data/operations.json")
-    print(return_transaction_amount_in_rub(transactions, 142264268))
+    print(return_transaction_amount_in_rub(transactions, 939719570))

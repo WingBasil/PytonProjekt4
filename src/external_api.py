@@ -10,8 +10,8 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 
-def convert_from_usd_to_rub(amount:float) -> Any:
-    """Функция принимает значение в долларах, обращается к API и возвращает конвертацию в рубли"""
+def convert_from_usd_to_rub(amount: float) -> Any:
+    """Принимает значение в долларах, обращается к API и возвращает сумму в рублях по текущему курсу"""
     url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount={amount}"
     headers = {"apikey": api_key}
     response = requests.request("GET", url, headers=headers)
@@ -22,11 +22,12 @@ def convert_from_usd_to_rub(amount:float) -> Any:
 
 
 def convert_from_eur_to_rub(amount: float) -> Any:
-    """Функция принимает значение в евро, обращается к API и возвращает конвертацию в рубли"""
+    """Функция принимает значение в евро, обращается к API и возвращает сумму в рублях по текущему курсу"""
     url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount={amount}"
     headers = {"apikey": api_key}
     response = requests.request("GET", url, headers=headers)
     json_result = response.text
+    print(response)
     rub_amount = json.loads(json_result)["result"]
 
     return rub_amount
