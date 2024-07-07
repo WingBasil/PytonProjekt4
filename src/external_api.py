@@ -1,33 +1,36 @@
 import json
 import os
-from typing import Any
+
 
 import requests
 from dotenv import load_dotenv
+from requests import RequestException
 
 load_dotenv()
 
 api_key = os.getenv("API_KEY")
 
 
-def convert_from_usd_to_rub(amount: float) -> Any:
-    """Принимает значение в долларах, обращается к API и возвращает сумму в рублях по текущему курсу"""
-    url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount={amount}"
-    headers = {"apikey": api_key}
-    response = requests.request("GET", url, headers=headers)
-    json_result = response.text
-    rub_amount = json.loads(json_result)["result"]
+def convert_to_rub(amount, currency):
+    """Функция принимает значение в долларах или евро, обращается к API и возвращает конвертацию в рубли"""
+    if currency == "USD":
+        url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount={amount}"
+        headers = {"apikey": api_key}
+        response = requests.get(url, headers=headers)
+        json_result = response.json()
+        print(response.json())
+        print(response.json()["result"])
+        rub_amount = json.loads(json_result)["result"]
+        return rub_amount
+    elif currency == "EUR":
+        url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount={amount}"
+        headers = {"apikey": api_key}
+        response = requests.get(url, headers=headers)
+        json_result = response.json()
+        rub_amount = json.loads(json_result)["result"]
+        return rub_amount
 
-    return rub_amount
 
 
-def convert_from_eur_to_rub(amount: float) -> Any:
-    """Функция принимает значение в евро, обращается к API и возвращает сумму в рублях по текущему курсу"""
-    url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount={amount}"
-    headers = {"apikey": api_key}
-    response = requests.request("GET", url, headers=headers)
-    json_result = response.text
-    print(response)
-    rub_amount = json.loads(json_result)["result"]
-
-    return rub_amount
+if __name__ == "__main__":
+    print(convert_to_rub(33.4, "USD"))
