@@ -1,6 +1,6 @@
 import pytest
 
-from src.utils import get_transactions_dictionary, return_transaction_amount_in_rub
+from src.utils import get_transactions_dictionary, transaction_amount_in_rub
 
 
 @pytest.fixture
@@ -37,9 +37,10 @@ def test_get_transactions_dictionary(get_bad_file):
 @pytest.fixture
 def transactions():
     return get_transactions_dictionary('../data/operations.json')
+
 @pytest.fixture
 def rub_transaction_number():
-    return 939719570
+    return 441945886
 
-def test_return_transaction_amount_in_rub(transactions, rub_transaction_number):
-    assert return_transaction_amount_in_rub(transactions, rub_transaction_number) == 863594.82
+def test_transaction_amount_in_rub(transactions, rub_transaction_number):
+    assert transaction_amount_in_rub(transactions, rub_transaction_number) == "31957.58"
