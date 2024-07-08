@@ -34,9 +34,9 @@ def transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
                     return rub_amount
                 else:
                     return "Конвертация не может быть выполнена"
-    else:
-        return "Транзакция не найдена"
+        else:
+            return "Транзакция не найдена"
 
-if __name__ == "__main__":
-    transactions = get_transactions_dictionary("../data/operations.json")
-    print(transaction_amount_in_rub(transactions, 41428829))
+#if __name__ == "__main__":
+#    transactions = get_transactions_dictionary("../data/operations.json")
+#    print(transaction_amount_in_rub(transactions, 441945886))

@@ -33,5 +33,5 @@ def convert_to_rub(amount: float, currency: str) -> Any:
     except RequestException:
         return 0
 
-if __name__ == "__main__":
-    print(convert_to_rub(20, "USD"))
+#if __name__ == "__main__":
+#    print(convert_to_rub(20, "USD"))
