@@ -1,10 +1,21 @@
+import logging
 from typing import Any
 from src.masks import get_mask_account, get_mask_card_number
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s: %(filename)s: %(levelname)s: %(message)s",
+    filename="../logs/mask.log",
+    filemode="w",
+)
+
+logger = logging.getLogger()
 
 
 def mask_account_card(input_number: str) -> Any:
     """Анализирует принятую строку на наличие информации о счете или карте
     Формирует строку с Типом карты/Счетом + маска."""
+    logger.info("String received")
     if "Счет" in input_number:
         account_number = int(input_number[-20:])
         new_text = "Счет " + get_mask_account(account_number)
@@ -19,7 +30,7 @@ def get_data(date: str) -> Any:
     return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
 
 
-# print(get_data('2018-07-11T02:26:18.671407'))
+#print(get_data('2018-07-11T02:26:18.671407'))
 input_number = "MasterCard 7158300734726758"
-# input_number = "Счет 12345678901234567890"
+#input_number = "Счет 12345678901234567890"
 print(mask_account_card(input_number))
