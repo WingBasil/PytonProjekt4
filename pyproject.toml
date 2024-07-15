@@ -11,6 +11,8 @@ requests = "^2.32.3"
 python-dotenv = "^1.0.1"
 logging = "^0.4.9.6"
 patch = "^1.16"
+pandas = "^2.2.2"
+openpyxl = "^3.1.5"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"
