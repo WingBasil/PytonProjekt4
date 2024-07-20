@@ -87,6 +87,6 @@ def convert_to_rub(transaction_convert: dict) -> Any:
         return 0
 
 
-if __name__ == "__main__":
-    transactions = get_transactions_dictionary("../data/operations.json")
-    print(transaction_amount_in_rub(transactions, 41428829))
+#if __name__ == "__main__":
+#    transactions = get_transactions_dictionary("../data/operations.json")
+#    print(transaction_amount_in_rub(transactions, 41428829))
